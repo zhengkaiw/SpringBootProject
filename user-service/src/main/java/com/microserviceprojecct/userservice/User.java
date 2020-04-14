@@ -2,13 +2,18 @@ package com.microserviceprojecct.userservice;
 
 import org.springframework.data.annotation.Id;
 
-public class User
+import java.io.Serializable;
+
+public class User implements Serializable
 {
+
+    private static final long serialVersionUID = 5140900014886997914L;
+
     @Id
-    private int userId;
+    private String id;
+
     private String username;
     private String password;
-    private boolean enabled;
 
     public User() {
 
@@ -18,14 +23,13 @@ public class User
         this.username = username;
         this.password = password;
     }
-    private int customerId;
 
-    public int getUserId() {
-        return userId;
+    public String getId() {
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(int userId) {
+        this.id = id;
     }
 
     public String getUsername() {
