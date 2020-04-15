@@ -1,17 +1,16 @@
 package com.microserviceprojecct.userservice;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.io.Serializable;
-
-public class User implements Serializable
+@Document(collection = "users")
+public class User
 {
-
-    private static final long serialVersionUID = 5140900014886997914L;
-
     @Id
     private String id;
 
+    private String name;
+    private String email;
     private String username;
     private String password;
 
@@ -19,7 +18,9 @@ public class User implements Serializable
 
     }
 
-    public User(String username, String password) {
+    public User(String name, String email, String username, String password) {
+        this.name = name;
+        this.email = email;
         this.username = username;
         this.password = password;
     }
@@ -48,21 +49,11 @@ public class User implements Serializable
         this.password = password;
     }
 
-//    public boolean isEnabled() {
-//        return enabled;
-//    }
-//
-//    public void setEnabled(boolean enabled) {
-//        this.enabled = enabled;
-//    }
+    public String getName() { return name; }
 
-//    public int getCustomerId() {
-//        return customerId;
-//    }
-//
-//    public void setCustomerId(int customerId) {
-//        this.customerId = customerId;
-//    }
+    public void setName() { this.name = name; }
 
+    public String getEmail() { return email; }
 
+    public void setEmail() { this.email = email; }
 }
