@@ -14,18 +14,21 @@ function App() {
   return (
     <Router>
       <div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="/index">Welcome</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a className="navbar-brand" href="/index">Welcome</a>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                 <DropdownButton id="dropdown-basic-button" title="Products">
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                  <Dropdown.Item href="/products/sortByAuthor">Sort By Author</Dropdown.Item>
+                  <Dropdown.Item href="/products/sortByTitle">Sort By Title</Dropdown.Item>
+                  <Dropdown.Item href="/products/sortByPrice">Sort By Price</Dropdown.Item>
+                  <Dropdown.Item href="/products/sortByBookRating">Sort By BookRating</Dropdown.Item>
+                  <Dropdown.Item href="/products/sortByTopSellers">Sort By Top Sellers</Dropdown.Item>
+                  <Dropdown.Item href="/products/sortByReleaseDate">Sort By Release Date</Dropdown.Item>
                 </DropdownButton>
               </li>
               <li className="nav-item">

@@ -14,9 +14,6 @@ public class LoginController {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    MongoTemplate mongoTemplate;
-
     @CrossOrigin
     @GetMapping("/users/{username}")
     public ResponseEntity<User> getUserByUsername(@PathVariable("username") String username) {
