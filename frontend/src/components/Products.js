@@ -64,7 +64,7 @@ const Products = () => {
       });
     }
     if (url === "Price") {
-      ProductService.getSortByPrice()
+      ProductService.getSortByPric()
       .then(response => {
         setProducts(response.data);
         console.log(response.data);
