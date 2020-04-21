@@ -5,16 +5,31 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [currentProduct, setCurrentProduct] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
-  const [currentUrl, setCurrentUrl] = useState("");
  
   useEffect(() => {
     retrieveProducts();
   }, []);
 
+  const functionConstructor = (funcName) => {
+    switch(funcName) {
+      case "Author":
+        return ProductService.getSortByAuthor();
+      case "Title":
+        return ProductService.getSortByTitle();
+      case "BookRating":
+        return ProductService.getSortByBookRating();
+      case "TopSellers":
+        return ProductService.getSortByTopSellers();
+      case "ReleaseDate":
+        return ProductService.getSortByTopSellers();
+      case "Price":
+        return ProductService.getSortByPrice();
+    }
+  }
+
   const retrieveProducts = () => {
     let url = window.location.pathname.substring(16);
-    if (url === "Author") {
-      ProductService.getSortByAuthor()
+    functionConstructor(url)
       .then(response => {
         setProducts(response.data);
         console.log(response.data);
@@ -22,57 +37,6 @@ const Products = () => {
       .catch(e => {
         console.log(e);
       });
-    }
-    if (url === "Title") {
-      ProductService.getSortByTitle()
-      .then(response => {
-        setProducts(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-    }
-    if (url === "BookRating") {
-      ProductService.getSortByBookRating()
-      .then(response => {
-        setProducts(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-    }
-    if (url === "TopSellers") {
-      ProductService.getSortByTopSellers()
-      .then(response => {
-        setProducts(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-    }
-    if (url === "ReleaseDate") {
-      ProductService.getSortByReleaseDate()
-      .then(response => {
-        setProducts(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-    }
-    if (url === "Price") {
-      ProductService.getSortByPric()
-      .then(response => {
-        setProducts(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-    }
   };
 
   const refreshList = () => {
